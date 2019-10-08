@@ -24,6 +24,27 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', index);
 app.use('/api', tasks);
 
-app.listen(port, function(){
-    console.log('server started on port ' + port);
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+io.on('connection', (socket) => {
+    console.log('new connection is made');
+
+    socket.on('join', function(data){
+        //joining
+        socket.join(data.room);
+  
+        console.log(data.user + 'joined the room : ' + data.room);
+  
+        socket.broadcast.to(data.room).emit('new user joined', {user:data.user, message:'has joined this room.'});
+      });
+  
+      socket.on('message',function(data){
+  
+        io.in(data.room).emit('new message', {user:data.user, message:data.message});
+      });
 });
+
+http.listen(port, function() {
+    console.log('listening on localhost:3000');
+ });

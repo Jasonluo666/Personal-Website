@@ -1,6 +1,7 @@
 import { Profile } from 'selenium-webdriver/firefox';
 
 export const config = {
+    backend: 'http://ec2-3-17-9-243.us-east-2.compute.amazonaws.com:3000/',
     about: {
         nickname: 'jason',
         description: 'I Am One With the Force and the Force Is With Me',

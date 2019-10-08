@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { NavigationComponent } from './component/navigation/navigation.component';
 import { SkillComponent } from './component/skill/skill.component';
 import { FaceDetectionComponent } from './component/face-detection/face-detection.component';
+import { ChatroomComponent } from './component/chatroom/chatroom.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { FaceDetectionComponent } from './component/face-detection/face-detectio
     FooterComponent,
     NavigationComponent,
     SkillComponent,
-    FaceDetectionComponent
+    FaceDetectionComponent,
+    ChatroomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
