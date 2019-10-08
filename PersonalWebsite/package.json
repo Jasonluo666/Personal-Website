@@ -13,11 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/cli": "^8.3.6",
+    "@angular/cli": "^8.3.8",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dlib-build": "^0.1.1",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "face-api.js": "^0.21.0",
     "mongojs": "^2.6.0"
   }
 }

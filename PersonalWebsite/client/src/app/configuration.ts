@@ -43,39 +43,39 @@ export const config = {
             {
                 icon: 'assets/images/skill/C_CPP.jpg',
                 title: 'C++',
-                description: 'description1'
+                description: '2 years experience. Related experience - Linux LAN communication'
             },{
                 icon: 'assets/images/skill/Java.png',
                 title: 'Java',
-                description: 'description2'
+                description: '1 years experience. Related experience - Object Oriented Programming, Android Dev'
             },{
                 icon: 'assets/images/skill/Python.png',
                 title: 'Python',
-                description: 'description3'
+                description: '2 years experience. Related experience - Machine Learning, Computer Vision, Data Mining'
             },{
                 icon: 'assets/images/skill/MEAN_STACK.png',
                 title: 'MEAN Stack',
-                description: 'description3'
+                description: ''
             },{
                 icon: 'assets/images/skill/Android.png',
                 title: 'Android Dev',
-                description: 'description3'
+                description: ''
             },{
                 icon: 'assets/images/skill/Git.png',
                 title: 'Version Control',
-                description: 'description3'
+                description: ''
             },{
                 icon: 'assets/images/skill/ML.png',
                 title: 'Machine Learning Related',
-                description: 'description3'
+                description: ''
             },{
                 icon: 'assets/images/skill/OpenCV.png',
                 title: 'Computer Vision Related',
-                description: 'description3'
+                description: ''
             },{
                 icon: 'assets/images/skill/Trello.png',
                 title: 'Agile Project Management',
-                description: 'description3'
+                description: ''
             }
         ]
     },
@@ -94,31 +94,31 @@ export const config = {
         demo: [
             {
                 cover_img: 'assets/images/logo.jpg',
-                title: 'Demo',
+                title: 'Coming Soon',
                 link: ''
             },{
                 cover_img: 'assets/images/logo.jpg',
-                title: 'Demo',
+                title: 'Coming Soon',
                 link: ''
             },
             {
                 cover_img: 'assets/images/logo.jpg',
-                title: 'Demo',
+                title: 'Coming Soon',
                 link: ''
             },
             {
                 cover_img: 'assets/images/logo.jpg',
-                title: 'Demo',
+                title: 'Coming Soon',
                 link: ''
             },
             {
                 cover_img: 'assets/images/logo.jpg',
-                title: 'Demo',
+                title: 'Coming Soon',
                 link: ''
             },
             {
                 cover_img: 'assets/images/logo.jpg',
-                title: 'Demo',
+                title: 'Coming Soon',
                 link: ''
             }
         ]

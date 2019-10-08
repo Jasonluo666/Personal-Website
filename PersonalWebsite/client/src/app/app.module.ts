@@ -10,6 +10,7 @@ import { ContactComponent } from './component/contact/contact.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { NavigationComponent } from './component/navigation/navigation.component';
 import { SkillComponent } from './component/skill/skill.component';
+import { FaceDetectionComponent } from './component/face-detection/face-detection.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,12 @@ import { SkillComponent } from './component/skill/skill.component';
     ContactComponent,
     FooterComponent,
     NavigationComponent,
-    SkillComponent
+    SkillComponent,
+    FaceDetectionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
