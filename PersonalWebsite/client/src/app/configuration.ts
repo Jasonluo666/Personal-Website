@@ -98,9 +98,9 @@ export const config = {
                 title: 'Online Comment Board',
                 link: '../contact'
             },{
-                cover_img: 'assets/images/logo.jpg',
-                title: 'Coming Soon',
-                link: ''
+                cover_img: 'assets/images/work/face-ai.png',
+                title: 'Face Recognition',
+                link: './face-ai'
             },
             {
                 cover_img: 'assets/images/logo.jpg',

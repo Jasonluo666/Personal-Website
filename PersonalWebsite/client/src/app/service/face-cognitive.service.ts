@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { ConfigurationService } from './configuration.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FaceCognitiveService {
+  backend = this.config.get('backend');
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private config: ConfigurationService) { }
 
   analyzeFace(img_url: string){
-    return this.http.get('http://localhost:3000/api/face_cognitive/' + img_url);
+    return this.http.get(this.backend + '/api/face_cognitive/' + img_url);
   }
 }

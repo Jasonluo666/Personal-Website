@@ -1,1 +1,47 @@
-<img id="img" src='http://www.fanboy.com/archive-images/sparta-trailer2-03.jpg'>
+<!--====== Face Recognition PART START ======-->
+
+<section id="work" class="work-area pt-125 pb-130">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-title pb-25">
+                    <h2 class="title">Face Recognition Online</h2>
+                    <p>Check this out with whatever image you want</p>
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+
+        <div class="row">
+            <h3>Upload From PC:</h3>
+            <input #file type="file" accept='image/*' (change)="previewLocal(file.files)" />
+
+            <h3>URL:</h3>
+            <input id="url_input" type="text" (focusout)="previewOnline()" />
+        </div> <!-- row -->
+
+        <div class="row">
+            <span style="color:red;" *ngIf="message">{{message}}</span>
+            <img [src]="imgURL" height="400" *ngIf="imgURL">
+        </div>
+
+        <div class="row" *ngIf="imgURL">
+            <button (click)="upload()">Submit</button>
+        </div>
+
+        <div class="row" *ngIf="data != null">
+            <div *ngFor="let person of data" class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-service text-center mt-30">
+                        <div class="service-content">
+                            <h4 class="service-title">{{person.faceRectangle | json}}</h4>
+                            <p>gender: {{person.faceAttributes.gender}}</p>
+                            <p>glasses: {{person.faceAttributes.glasses}}</p>
+                            <p>hairColor: {{person.faceAttributes.hairColor | json}}</p>
+                            <p>emotion: {{person.faceAttributes.emotion | json}}</p>
+                        </div>
+                    </div> <!-- single service -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<!--====== Face Recognition PART ENDS ======-->
