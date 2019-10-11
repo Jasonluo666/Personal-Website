@@ -17,12 +17,12 @@ const routes: Routes = [
   {path: 'footer', component: FooterComponent},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', redirectTo: '#/home', pathMatch: 'full'},
-  {path: 'skill', redirectTo: '#/skill', pathMatch: 'full'},
-  {path: 'portfolio', redirectTo: '#/portfolio', pathMatch: 'full'},
-  {path: 'blog', redirectTo: '#/blog', pathMatch: 'full'},
-  {path: 'contact', redirectTo: '#/contact', pathMatch: 'full'},
-  {path: 'footer', redirectTo: '#/footer', pathMatch: 'full'},
+  {path: 'home', redirectTo: '#home', pathMatch: 'full'},
+  {path: 'skill', redirectTo: '#skill', pathMatch: 'full'},
+  {path: 'portfolio', redirectTo: '#portfolio', pathMatch: 'full'},
+  {path: 'blog', redirectTo: '#blog', pathMatch: 'full'},
+  {path: 'contact', redirectTo: '#contact', pathMatch: 'full'},
+  {path: 'footer', redirectTo: '#footer', pathMatch: 'full'},
 ];
 
 @NgModule({

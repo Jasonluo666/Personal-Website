@@ -10,7 +10,7 @@ export const config = {
         about_me:{
             subtitle: 'Energy = Milk * Coffee^2',
             intro_title: 'Hi There! I\'m Jason Luo',
-            intro_description: 'a master student at BU. My major is Computer Science, and I have completed my B.S. in CS as well.'
+            intro_description: 'a master student at BU. My major is Computer Science, and I have completed my B.S. in CS as well. There\'s an incredible growth of new technology, especially in cross-disciplinary domains, in the last decade along with opportunities that interest me. I planed to step in this field four years ago and to explore as much as I can and check out how far I can go with it.'
         },
 
         info:{
@@ -94,9 +94,9 @@ export const config = {
 
         demo: [
             {
-                cover_img: 'assets/images/logo.jpg',
-                title: 'Coming Soon',
-                link: ''
+                cover_img: 'assets/images/work/chatroom.png',
+                title: 'Online Comment Board',
+                link: '../contact'
             },{
                 cover_img: 'assets/images/logo.jpg',
                 title: 'Coming Soon',

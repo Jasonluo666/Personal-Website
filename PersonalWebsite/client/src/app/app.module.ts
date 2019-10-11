@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { NavigationComponent } from './component/navigation/navigation.component
 import { SkillComponent } from './component/skill/skill.component';
 import { FaceDetectionComponent } from './component/face-detection/face-detection.component';
 import { ChatroomComponent } from './component/chatroom/chatroom.component';
+import { FaceAIComponent } from './component/face-ai/face-ai.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { ChatroomComponent } from './component/chatroom/chatroom.component';
     NavigationComponent,
     SkillComponent,
     FaceDetectionComponent,
-    ChatroomComponent
+    ChatroomComponent,
+    FaceAIComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
