@@ -11,6 +11,6 @@ export class FaceCognitiveService {
   constructor(private http : HttpClient, private config: ConfigurationService) { }
 
   analyzeFace(img_url: string){
-    return this.http.get(this.backend + '/api/face_cognitive/' + img_url);
+    return this.http.get(this.backend + 'api/face_cognitive/' + img_url);
   }
 }

@@ -1,0 +1,10 @@
+.well {
+    overflow: auto;
+    height:200px;
+    width:100%;
+    padding:15px;
+}
+
+.err {
+    color: red;
+}

@@ -6,29 +6,21 @@
     <div class="row">
         <div class="col-sm-5">
             <div class="form-group">
-                <label for="username">Username</label>
                 <input type="text" [(ngModel)]="user" class="form-control" id="username" placeholder="Enter username">
                 <!-- <small id="userHelp" class="form-text text-muted">Type your username.</small> -->
             </div>
         </div>
-        <!-- <div class="col-sm-5">
-            <label for="roomInput">Channel</label>
-            <select name="roomInput"  id="roomInput" class="form-control" [(ngModel)]="room">
-                <option value="Lobby" selected>Lobby</option>
-                <option value="Lobby" selected>Secret Channel</option>
-            </select>
-        </div> -->
         <div class="col sm-2">
-            <div style="margin-top:19px;" class="pull-right"> 
-                <button type="button" class="btn btn-primary" (click)="join()">Join</button>
+            <div class="pull-right"> 
+                <button type="button" class="btn btn-primary" (click)="join()">Set Username</button>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="well" style="height:200px; padding:15px;">
+        <div class="well">
             <div *ngFor="let item of messageArray">
-            <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+                <span><i style="font-size:10px;">({{item.time}})</i>&nbsp;<strong>{{item.user}} : </strong>&nbsp; {{item.message}}</span>
             </div>
         </div>
     </div>
@@ -37,7 +29,8 @@
             <input type="text" class="form-control" [(ngModel)]="messageText">            
         </div>
         <div class="col-sm-2">
-                <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
+            <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
         </div>
+        <p class="err" *ngIf="error !== undefined">{{error}}</p>
     </div>
 </div>

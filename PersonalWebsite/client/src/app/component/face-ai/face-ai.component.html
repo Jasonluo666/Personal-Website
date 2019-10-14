@@ -35,7 +35,7 @@
                             <h4 class="service-title">{{person.faceRectangle | json}}</h4>
                             <p>gender: {{person.faceAttributes.gender}}</p>
                             <p>glasses: {{person.faceAttributes.glasses}}</p>
-                            <p>hairColor: {{person.faceAttributes.hairColor | json}}</p>
+                            <p>hairColor: {{person.faceAttributes.hair.hairColor[0] | json}}</p>
                             <p>emotion: {{person.faceAttributes.emotion | json}}</p>
                         </div>
                     </div> <!-- single service -->

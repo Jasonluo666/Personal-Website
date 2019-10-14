@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import {Observable} from 'rxjs';
 import { ConfigurationService } from './configuration.service';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
-  constructor(private config: ConfigurationService) { }
+  constructor(private http : HttpClient, private config: ConfigurationService) { }
 
   private socket = io(this.config.get('backend'), {transports: ['websocket']});
+  backend = this.config.get('backend');
 
     joinRoom(data)
     {
@@ -31,6 +33,9 @@ export class ChatService {
     sendMessage(data)
     {
         this.socket.emit('message',data);
+        this.http.post(this.backend + 'api/chatroom/push/', data).subscribe(data => {
+            console.log(data);
+        });
     }
 
     newMessageReceived(){
@@ -42,5 +47,11 @@ export class ChatService {
         });
 
         return observable;
+    }
+
+    loadChatRoom(cb){
+        this.http.get(this.backend + 'api/chatroom/fetch/').subscribe(data => {
+            cb(data);
+        });
     }
 }
