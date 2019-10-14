@@ -78,8 +78,8 @@ router.post('/chatroom/push/', (req, res, next) => {
 });
 
 fs = require('fs');
-router.get('/img/:img_type', (req, res, next) => {
-    fs.readFile(img_path + 'face' + req.params.img_type, function(err, data) {
+router.get('/img/:img_name', (req, res, next) => {
+    fs.readFile(img_path + req.params.img_name, function(err, data) {
         if (err) throw err; // Fail if the file can't be read.
 
         res.end(data); // Send the file data to the browser.

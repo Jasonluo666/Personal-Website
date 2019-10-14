@@ -17,10 +17,10 @@ export class FaceCognitiveService {
   upload(img: File, cb){
     let formData: FormData = new FormData(); 
     formData.append('image', img); 
-    return this.http.post('http://localhost:3000/api/img/', formData).subscribe(data => {
+    return this.http.post(this.backend + 'api/img/', formData).subscribe(data => {
       console.log(data);
 
-      var url = this.backend + 'api/img/.' + img.name.split('.').pop();
+      var url = this.backend + 'api/img/face.' + img.name.split('.').pop();
       cb(url);
     });
   }

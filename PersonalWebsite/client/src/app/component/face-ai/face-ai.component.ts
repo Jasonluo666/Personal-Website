@@ -19,14 +19,6 @@ export class FaceAIComponent implements OnInit {
   ngOnInit() {
   }
 
-  analyzeFace(img_url: string){
-    this.service.analyzeFace(img_url).subscribe((data: string) => {
-      this.data = JSON.parse(data);
-    }, err => {
-      console.log(err);
-    });
-  }
-
   previewLocal(files) {
     if (files.length === 0)
       return;
@@ -68,14 +60,23 @@ export class FaceAIComponent implements OnInit {
 
   upload() {
     if(this.imgFile == null){
-      //this.analyzeFace(this.imgURL);
+      this.analyzeFace(this.imgURL);
     }
     else {
       this.service.upload(this.imgFile, (url) => {
         this.imgURL = url;
-        
-        //this.analyzeFace(this.imgURL);
+        this.analyzeFace(this.imgURL);
       });
     }
+  }
+
+  analyzeFace(img_url: string){
+    
+    console.log(img_url);
+    this.service.analyzeFace(img_url).subscribe((data: string) => {
+      this.data = JSON.parse(data);
+    }, err => {
+      console.log(err);
+    });
   }
 }
