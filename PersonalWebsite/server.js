@@ -21,7 +21,7 @@ mongoUtil.connectToServer( function( err, client ) {
 
   // set static folder
   app.use(express.static(path.join(__dirname, 'client')));
-  app.use(express.static('public'))cd
+  app.use(express.static('public'));
 
   // body parser
   app.use(bodyParser.json());
