@@ -64,14 +64,14 @@ export class FaceAIComponent implements OnInit {
     }
     else {
       this.service.upload(this.imgFile, (url) => {
-        this.imgURL = url;
-        this.analyzeFace(this.imgURL);
-        console.log(this.imgURL);
+        this.analyzeFace(url);
+        console.log(url);
       });
     }
   }
 
   analyzeFace(img_url: string){
+    this.data = null;
     this.service.analyzeFace(img_url).subscribe((data: string) => {
       this.data = JSON.parse(data);
     }, err => {

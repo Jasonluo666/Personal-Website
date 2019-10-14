@@ -30,6 +30,11 @@ mongoUtil.connectToServer( function( err, client ) {
   app.use('/', index);
   app.use('/api', tasks);
 
+  app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private')
+    next()
+  })
+
   var http = require('http').Server(app);
   var io = require('socket.io')(http);
 
