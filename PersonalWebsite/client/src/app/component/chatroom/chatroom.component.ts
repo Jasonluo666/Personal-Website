@@ -48,5 +48,12 @@ export class ChatroomComponent implements OnInit {
       this.error = undefined;
       this._chatService.sendMessage({user:this.user, room:this.room, message:this.messageText});
       this.messageText = '';
+
+      this._chatService.loadChatRoom(data => {
+        this.messageArray = [];
+        for(const x of data){
+          this.messageArray.push(x);
+        }
+      });
     }
 }

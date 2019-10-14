@@ -11,6 +11,7 @@ export class FaceAIComponent implements OnInit {
 
   public imagePath;
   imgURL: any;
+  imgFile: File;
   public message: string;
 
   constructor(private service: FaceCognitiveService) { }
@@ -45,6 +46,8 @@ export class FaceAIComponent implements OnInit {
       this.imgURL = reader.result;
       // this.analyzeFace(this.imgURL);
     }
+
+    this.imgFile = files[0]
   }
 
   previewOnline(){
@@ -60,9 +63,19 @@ export class FaceAIComponent implements OnInit {
 
     this.message = null;
     this.imgURL = url;
+    this.imgFile = null;
   }
 
   upload() {
-    this.analyzeFace(this.imgURL);
+    if(this.imgFile == null){
+      //this.analyzeFace(this.imgURL);
+    }
+    else {
+      this.service.upload(this.imgFile, (url) => {
+        this.imgURL = url;
+        
+        //this.analyzeFace(this.imgURL);
+      });
+    }
   }
 }

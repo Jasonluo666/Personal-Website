@@ -9,14 +9,14 @@ var client = mongoUtil.getClient();
 
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
-const storage = new GridFsStorage({ db: client.db("MyWebsite") });
-// const img_path = './public/uploads/'
-// const storage = multer.diskStorage({
-//     destination: img_path,
-//     filename: (req, file, cb) => {
-//         cb(null, 'face' + path.extname(file.originalname));
-//     }
-// });
+// const storage = new GridFsStorage({ db: client.db("MyWebsite") });
+const img_path = './public/uploads/'
+const storage = multer.diskStorage({
+    destination: img_path,
+    filename: (req, file, cb) => {
+        cb(null, 'face' + path.extname(file.originalname));
+    }
+});
 const upload = multer({storage: storage, 
     limits:{fileSize: 1024 * 1024 * 5}, 
     fileFilter: (req, file, cb) => {
@@ -77,25 +77,17 @@ router.post('/chatroom/push/', (req, res, next) => {
     });
 });
 
-router.post('/img/', upload.single('image'), (req, res, next) => {
-    const data = {
-        _id: ObjectId(),
-        name: req.body.name,
-        img: req.file.path
-    };
+fs = require('fs');
+router.get('/img/:img_type', (req, res, next) => {
+    fs.readFile(img_path + 'face' + req.params.img_type, function(err, data) {
+        if (err) throw err; // Fail if the file can't be read.
 
-    console.log(data);    
-    collection = client.db("MyWebsite").collection("face_cognitive");
-    // perform actions on the collection object
-    
-    collection.insertOne(data, (err, result) => {
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.json({'message': 'File uploaded successfully'});
-        }
-    });
+        res.end(data); // Send the file data to the browser.
+      });
+});
+
+router.post('/img/', upload.single('image'), (req, res, next) => {
+    res.json({'message': 'Image uploaded successfully'});
 });
 
 router.get('/face_cognitive/*', async function(req, res, next){

@@ -13,4 +13,15 @@ export class FaceCognitiveService {
   analyzeFace(img_url: string){
     return this.http.get(this.backend + 'api/face_cognitive/' + img_url);
   }
+
+  upload(img: File, cb){
+    let formData: FormData = new FormData(); 
+    formData.append('image', img); 
+    return this.http.post('http://localhost:3000/api/img/', formData).subscribe(data => {
+      console.log(data);
+
+      var url = this.backend + 'api/img/.' + img.name.split('.').pop();
+      cb(url);
+    });
+  }
 }
