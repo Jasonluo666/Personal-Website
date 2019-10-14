@@ -20,7 +20,7 @@ export class FaceCognitiveService {
     return this.http.post(this.backend + 'api/img/', formData).subscribe(data => {
       console.log(data);
 
-      var url = this.backend + 'api/img/face.' + img.name.split('.').pop();
+      var url = this.backend + 'uploads/face.' + img.name.split('.').pop();
       cb(url);
     });
   }
