@@ -9,6 +9,7 @@ mongoUtil.connectToServer( function( err, client ) {
 
   const index = require("./routers/index");
   const tasks = require("./routers/tasks");
+  
   const port = 3000;
 
   const app = express();
@@ -56,7 +57,8 @@ mongoUtil.connectToServer( function( err, client ) {
         });
   });
 
-  http.listen(port, function() {
-      console.log('listening on localhost:3000');
+  const publicIp = require('public-ip');
+  http.listen(port, async function() {
+      console.log('listening on ' + await publicIp.v4() + ':' + port);
   });
 });

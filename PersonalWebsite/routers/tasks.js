@@ -2,6 +2,12 @@ var express = require('express');
 var router = express.Router();
 const request = require('request');
 const path = require('path');
+const publicIp = require('public-ip');
+var ip;
+publicIp.v4().then(res => {
+    ip = res;
+})
+const port = 3000;
 
 const ObjectId = require('mongodb').ObjectId;
 var mongoUtil = require( '../mongoUtil' );
@@ -11,10 +17,19 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 // const storage = new GridFsStorage({ db: client.db("MyWebsite") });
 const img_path = './public/uploads/'
+
+const image_list = new Array(10);
+var image_index = 0;
+
 const storage = multer.diskStorage({
     destination: img_path,
     filename: (req, file, cb) => {
-        cb(null, 'face' + path.extname(file.originalname));
+        var name = 'face' + Date.now() + path.extname(file.originalname);
+        
+        image_index = (image_index + 1) % image_list.length;
+        image_list[image_index] = name;
+
+        cb(null, name);
     }
 });
 const upload = multer({storage: storage, 
@@ -87,14 +102,14 @@ router.post('/chatroom/push/', (req, res, next) => {
 // });
 
 router.post('/img/', upload.single('image'), (req, res, next) => {
-    res.json({'message': 'Image uploaded successfully'});
+    res.json({'message': 'Image uploaded successfully', 'path': ip + ':' + port + '/uploads/' + image_list[image_index]});
 });
 
 router.get('/face_cognitive/*', async function(req, res, next){
     const subscriptionKey = 'a0871fb4dcac41d08f693d18af920cb8';
     const uriBase = 'https://faceapiformean.cognitiveservices.azure.com/face/v1.0/detect';
-    const imageUrl = req.params[0];
-
+    var imageUrl = req.params[0];
+    
     const params = {
         'returnFaceId': 'true',
         'returnFaceLandmarks': 'false',
@@ -123,6 +138,5 @@ router.get('/face_cognitive/*', async function(req, res, next){
     
     res.end(JSON.stringify(jsonResponse, null, 3));
     });
-});
-
+})
 module.exports = router;

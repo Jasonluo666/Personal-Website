@@ -74,6 +74,10 @@ export class FaceAIComponent implements OnInit {
     this.data = null;
     this.service.analyzeFace(img_url).subscribe((data: string) => {
       this.data = JSON.parse(data);
+
+      if(this.data.error !== undefined){
+        this.data = null;
+      }
     }, err => {
       console.log(err);
     });

@@ -6,7 +6,8 @@ import { ConfigurationService } from './configuration.service';
   providedIn: 'root'
 })
 export class FaceCognitiveService {
-  backend = this.config.get('backend');
+  //backend = this.config.get('backend');
+  backend = 'http://localhost:3000/';
 
   constructor(private http : HttpClient, private config: ConfigurationService) { }
 
@@ -17,10 +18,10 @@ export class FaceCognitiveService {
   upload(img: File, cb){
     let formData: FormData = new FormData(); 
     formData.append('image', img); 
-    return this.http.post(this.backend + 'api/img/', formData).subscribe(data => {
+    return this.http.post(this.backend + 'api/img/', formData).subscribe((data: any) => {
       console.log(data);
-
-      var url = this.backend + 'uploads/face.' + img.name.split('.').pop();
+      
+      var url = data.path;
       cb(url);
     });
   }
