@@ -6,8 +6,8 @@ import { ConfigurationService } from './configuration.service';
   providedIn: 'root'
 })
 export class FaceCognitiveService {
-  //backend = this.config.get('backend');
-  backend = 'http://localhost:3000/';
+  backend = this.config.get('backend');
+  // backend = 'http://localhost:3000/';
 
   constructor(private http : HttpClient, private config: ConfigurationService) { }
 

@@ -102,7 +102,8 @@ router.post('/chatroom/push/', (req, res, next) => {
 // });
 
 router.post('/img/', upload.single('image'), (req, res, next) => {
-    res.json({'message': 'Image uploaded successfully', 'path': ip + ':' + port + '/uploads/' + image_list[image_index]});
+    res.json({'message': 'Image uploaded successfully', 
+    'path': 'http://' + ip + ':' + port + '/uploads/' + image_list[image_index]});
 });
 
 router.get('/face_cognitive/*', async function(req, res, next){
