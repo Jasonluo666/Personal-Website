@@ -17,16 +17,20 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 // const storage = new GridFsStorage({ db: client.db("MyWebsite") });
 const img_path = './public/uploads/'
-
 const image_list = new Array(10);
 var image_index = 0;
-
+var fs = require('fs');
 const storage = multer.diskStorage({
     destination: img_path,
     filename: (req, file, cb) => {
         var name = 'face' + Date.now() + path.extname(file.originalname);
         
         image_index = (image_index + 1) % image_list.length;
+        try{
+            fs.unlinkSync(img_path + image_list[image_index]);
+        }catch(err){
+            console.log('file not exist');
+        }
         image_list[image_index] = name;
 
         cb(null, name);
