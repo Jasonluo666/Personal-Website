@@ -111,8 +111,10 @@ router.post('/img/', upload.single('image'), (req, res, next) => {
 });
 
 router.get('/face_cognitive/*', async function(req, res, next){
-    const subscriptionKey = 'a0871fb4dcac41d08f693d18af920cb8';
-    const uriBase = 'https://faceapiformean.cognitiveservices.azure.com/face/v1.0/detect';
+    // const subscriptionKey = 'a0871fb4dcac41d08f693d18af920cb8';
+    // const uriBase = 'https://faceapiformean.cognitiveservices.azure.com/face/v1.0/detect';
+    const subscriptionKey = 'e901e906485a4dee9f871f651d425c73';
+    const uriBase = 'https://faceapiformeanstudent.cognitiveservices.azure.com/face/v1.0/detect';
     var imageUrl = req.params[0];
     
     const params = {
